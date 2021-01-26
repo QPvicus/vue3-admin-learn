@@ -1,12 +1,15 @@
 const path = require("path");
-const resolve = dir => path.resolve(__dirname, dir);
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 
 module.exports = {
   devServer: {
     port: 8889,
     open: false,
     compress: false,
-    overplay: {
+    overlay: {
       warnings: false,
       errors: true
     },
@@ -18,23 +21,23 @@ module.exports = {
         pathRewrite: {
           "^/dev": ""
         }
-      }
+      },
 
-      // '/oss-upload': {
-      //   target: 'https://vue3-element-admin.oss-cn-beijing.aliyuncs.com',
-      //   changeOrigin: true,
-      // 	pathRewrite: {
-      // 		'^/oss-upload': ''
-      // 	}
-      // }
+      "/oss-upload": {
+        target: "https://vue3-element-admin.oss-cn-beijing.aliyuncs.com",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/oss-upload": ""
+        }
+      }
     }
   },
   configureWebpack: {
     resolve: {
-      // 路径别名配置
+      //路径别名配置
       alias: {
         "@": resolve("src"),
-        assets: resolve("assets"),
+        assets: resolve("@/assets"),
         common: resolve("@/common"),
         components: resolve("@/components"),
         network: resolve("@/network"),
@@ -51,7 +54,7 @@ module.exports = {
   },
   productionSourceMap: false,
   publicPath: "/",
-  lintOnSave: false,
+  lintOnSave: false, // 临时关闭eslint
   chainWebpack: config => {
     //配置 svg-sprite-loader
     // 第一步：让其他svg loader不要对src/icons进行操作

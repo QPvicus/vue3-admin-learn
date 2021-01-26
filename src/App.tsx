@@ -1,11 +1,15 @@
 import { defineComponent } from "vue";
+import ErrorPage from "./components/ErrorPage";
 
 export default defineComponent({
   setup() {
-    return (
-      <div id="app">
-        <router-view />
-      </div>
-    );
+    return () => {
+      return (
+        <div id="app">
+          <ErrorPage code={404} desc={"dsfasdf"} />
+          <router-view />
+        </div>
+      );
+    };
   }
 });

@@ -4,7 +4,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   setup() {
     return () => {
-      return <ErrorPage code={404} desc={"找不到你要查找的页面"} />;
+      return <ErrorPage code={500} desc={"糟糕,出了点问题"} />;
     };
   }
 });

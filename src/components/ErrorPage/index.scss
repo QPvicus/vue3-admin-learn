@@ -1,0 +1,33 @@
+.error-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow-y: auto;
+	height: 100%;
+	.code {
+		font-size: 120px;
+		font-weight: normal;
+		color: #6c757d;
+		font-family: 'Segoe UI';
+	}
+	.desc {
+		font-size: 16px;
+		font-weight: 400;
+		color: #34395e;
+		margin-top: 30px;
+	}
+
+	.link {
+		margin-top: 30px;
+		.el-link {
+			margin-right: 20px;
+			color: #008ad3;
+		}
+	}
+	.copyright {
+		color: #6c757d;
+		margin-top: 90px;
+		font-size: 14px;
+	}
+}
